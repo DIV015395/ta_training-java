@@ -1,4 +1,4 @@
-package com.epam.training.student_Aleksei_Guskov;
+package com.epam.training.student_Aleksei_Guskov.fundamental.java_basics;
 
 /**
  * Hello world!
