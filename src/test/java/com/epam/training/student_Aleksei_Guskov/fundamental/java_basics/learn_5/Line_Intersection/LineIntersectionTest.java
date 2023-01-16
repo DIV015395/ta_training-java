@@ -1,4 +1,4 @@
-package com.epam.training.student_Aleksei_Guskov.fundamental.java_basics.learn_5;
+package com.epam.training.student_Aleksei_Guskov.fundamental.java_basics.learn_5.Line_Intersection;
 
 import com.epam.training.student_Aleksei_Guskov.fundamental.java_basics.learn_5.Line_Intersection.Line;
 import org.junit.jupiter.params.ParameterizedTest;

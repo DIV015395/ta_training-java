@@ -11,13 +11,13 @@ class Segment {
     public Segment(Point start, Point end) {
         this.start = start;
         this.end = end;
-        if ((start == null || end == null) || (this.start.getX() == this.end.getX() && this.start.getY() == this.end.getY())) {
+        if ((start == null || end == null) || (this.start.getX() == this.end.getX() && this.start.getY() == this.end.getY())) { //проверка значений начала и конца отрезка на равность (вырожденность)
             throw new IllegalArgumentException("illegal arguments");
         }
     }
 
     double length() {
-        double xArgument = Math.pow(start.getX() - end.getX(), 2);
+        double xArgument = Math.pow(start.getX() - end.getX(), 2);                                                              //
         double yArgument = Math.pow(start.getY() - end.getY(), 2);
         return Math.sqrt(xArgument+yArgument);
     }
