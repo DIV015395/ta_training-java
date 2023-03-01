@@ -1,10 +1,8 @@
 package com.epam.training.student_Aleksei_Guskov.fundamental.java_basics.learn_9.Words;
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static java.util.Arrays.fill;
 
 public class StringUtil {
     public static int countEqualIgnoreCaseAndSpaces(String[] words, String sample) {
@@ -13,10 +11,8 @@ public class StringUtil {
         int zeroExam = 0;
         if (sample == null || sample == "") return 0;
         for (int i = 0; i <= words.length-1; i++) {
-            //words[i] = words[i].trim();
-            //sample = sample.trim();
             if (words[i] != null && words[i] != "") zeroExam++;
-            if (sample.trim().equalsIgnoreCase(words[i].trim()) == true) {
+            if (sample.trim().equalsIgnoreCase(words[i].trim())) {
                 wordsSample++;
             }
             else continue;
@@ -38,9 +34,6 @@ public class StringUtil {
             String[] newText = splitPat.split(text);
             if (newText.length == 0 || newText.toString().equals(exam)) return null;
             if (newText[0].equals(exam) || newText[0] == " " || newText[0] == ",") {
-                //StringBuilder nextText = new StringBuilder(Arrays.toString(newText));
-                //nextText.delete(newText.length-1)
-                //nextText.delete(0,3);
                 String[] nextText = new String[newText.length-1];
                 System.arraycopy(newText, 1, nextText, 0, newText.length-1);
                 return nextText;
@@ -65,15 +58,15 @@ public class StringUtil {
         Matcher examPath5 = exam5.matcher(path);
         Matcher examPath6 = exam6.matcher(path);
         Matcher examPath7 = exam7.matcher(path);
-        if (examPath.lookingAt() == true ||
-                examPath2.lookingAt() == true ||
-                examPath3.lookingAt() == true ||
-                examPath4.lookingAt() == true ||
-                examPath5.lookingAt() == true ||
-                examPath6.lookingAt() == true ||
-                examPath7.lookingAt() == true) return null;
+        if (examPath.lookingAt() ||
+                examPath2.lookingAt() ||
+                examPath3.lookingAt() ||
+                examPath4.lookingAt() ||
+                examPath5.lookingAt() ||
+                examPath6.lookingAt() ||
+                examPath7.lookingAt()) return null;
 
-        if (toWin == true){
+        if (toWin){
             Pattern p1 = Pattern.compile("/");
             Matcher m1 = p1.matcher(path);
             path = m1.replaceAll("\\\\");
@@ -85,7 +78,7 @@ public class StringUtil {
             }
             return path;
         }
-        if (toWin == false){
+        if (!toWin){
             Pattern p1 = Pattern.compile("\\\\");
             Matcher m1 = p1.matcher(path);
             path = m1.replaceAll("/");
@@ -95,12 +88,8 @@ public class StringUtil {
             Pattern p3 = Pattern.compile("C:/");
             Matcher m3 = p3.matcher(path);
             path = m3.replaceAll("/");
-            //if (path.charAt(0) == '/') {
-            //    path = "~" + path;
-            //}
             return path;
         }
-        //return path;
         throw new UnsupportedOperationException();
     }
 
@@ -113,7 +102,7 @@ public class StringUtil {
         }
         if (examNull == 0) return null;
         String exam = "[\\[]?([,]?[\\s]?)([\\[]?[\\w]+[\\]]?)[\\s]?";
-        String nextWords = new String();
+        String nextWords;
         String wordsString = Arrays.toString(words);
         StringBuilder newWords = new StringBuilder();
         Pattern pattern = Pattern.compile(exam);

@@ -13,15 +13,12 @@ public class TransposeMatrix {
                 transpose[j][i] = matrix[i][j];
              }
         }
-
         return transpose;
     }
 
     public static void main(String[] args) {
 
         System.out.println("Test your code here!\n");
-
-        // Get a result of your code
 
         int[][] matrix = {
                 {1, 2},

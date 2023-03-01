@@ -1,7 +1,5 @@
 package com.epam.training.student_Aleksei_Guskov.fundamental.java_basics.learn_6.Decrementing_Carousel_with_Limit;
 
-import com.epam.training.student_Aleksei_Guskov.fundamental.java_basics.learn_6.Gradually_Decreasing_Carousel.GraduallyDecreasingCarousel;
-
 public class DecrementingCarouselWithLimitedRun extends DecrementingCarousel{
     int actionLimit;
     public DecrementingCarouselWithLimitedRun(final int capacity, final int actionLimit) {
@@ -13,7 +11,7 @@ public class DecrementingCarouselWithLimitedRun extends DecrementingCarousel{
     public boolean addElement(int element) {
         return super.addElement(element);
     }
-    public CarouselRun run(){
+    public CarouselRun run() {
         if (!isRun) {
             isRun = true;
             return new CarouselRun();
@@ -27,7 +25,6 @@ public class DecrementingCarouselWithLimitedRun extends DecrementingCarousel{
         }
 
         public boolean isFinished() {
-            //throw new UnsupportedOperationException();
             if (decrementStep == actionLimit) {
                 return true;
             } else {
@@ -40,5 +37,4 @@ public class DecrementingCarouselWithLimitedRun extends DecrementingCarousel{
             }
         }
     }
-
 }

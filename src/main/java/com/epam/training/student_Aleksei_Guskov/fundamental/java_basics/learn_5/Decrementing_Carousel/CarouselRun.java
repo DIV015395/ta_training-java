@@ -4,14 +4,11 @@ public class CarouselRun {
     final int[] array = DecrementingCarousel.carousel.clone();
     int position;
     int decrement;
-
     {
         position = 0;
         decrement = 1;
     }
-
     public int next() {
-        //throw new UnsupportedOperationException();
         int before;
         if (isFinished()){
             return -1;
@@ -30,14 +27,12 @@ public class CarouselRun {
 
 
     public boolean isFinished() {
-        //throw new UnsupportedOperationException();
-        for (int el : array) {
-            if (el>0){
+        for (int element : array) {
+            if (element > 0){
                 return false;
             }
         }
         return true;
     }
-
 }
 

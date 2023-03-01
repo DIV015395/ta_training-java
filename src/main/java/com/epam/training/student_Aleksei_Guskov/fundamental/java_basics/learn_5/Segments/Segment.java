@@ -1,9 +1,5 @@
 package com.epam.training.student_Aleksei_Guskov.fundamental.java_basics.learn_5.Segments;
 
-import static java.lang.Math.abs;
-import static java.lang.Math.sqrt;
-import static java.lang.StrictMath.pow;
-
 class Segment {
     private Point start;
     private Point end;
@@ -11,23 +7,23 @@ class Segment {
     public Segment(Point start, Point end) {
         this.start = start;
         this.end = end;
-        if ((start == null || end == null) || (this.start.getX() == this.end.getX() && this.start.getY() == this.end.getY())) { //проверка значений начала и конца отрезка на равность (вырожденность)
+        if ((start == null || end == null) ||
+                (this.start.getX() == this.end.getX() &&
+                        this.start.getY() == this.end.getY())) {            //проверка значений начала и конца отрезка на равность (вырожденность)
             throw new IllegalArgumentException("illegal arguments");
         }
     }
 
     double length() {
-        double xArgument = Math.pow(start.getX() - end.getX(), 2);                                                              //
-        double yArgument = Math.pow(start.getY() - end.getY(), 2);
-        return Math.sqrt(xArgument+yArgument);
+        return Math.sqrt(Math.pow(start.getX() - end.getX(), 2) + Math.pow(start.getY() - end.getY(), 2));
     }
 
     Point middle() {
-       return new Point ((start.getX()+end.getX())/2,(start.getY()+ end.getY())/2);
+        return new Point ((start.getX()+end.getX())/2,(start.getY()+ end.getY())/2);
     }
 
     Point intersection(Segment another) {
-        if (this.start == another.start && this.end == another.end) {
+        if ((this.start == another.start) && (this.end == another.end)) {
             return null;
         }
         double k1, k2, b1, b2;
@@ -62,9 +58,7 @@ class Segment {
             } else {
                 return null;
             }
-
         }
     }
-
 }
 

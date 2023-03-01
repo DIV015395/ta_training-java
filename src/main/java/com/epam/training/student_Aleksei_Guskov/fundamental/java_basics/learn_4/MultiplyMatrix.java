@@ -3,31 +3,27 @@ package com.epam.training.student_Aleksei_Guskov.fundamental.java_basics.learn_4
 import java.util.Arrays;
 
 public class MultiplyMatrix {
-    public static int[][] multiply(int[][] matrix1, int[][] matrix2) {
+    public static int[][] multiply(int[][] firstMatrix, int[][] secondMatrix) {
 
-        int rows = matrix1.length;
-        int cols = matrix2[0].length;
-        int iterations = matrix2.length;
+        int rows = firstMatrix.length;
+        int cols = secondMatrix[0].length;
+        int iterations = secondMatrix.length;
 
-        int[][] result = new int[rows][cols];
+        int[][] multiplyResult = new int[rows][cols];
 
-        for (int i = 0; i < rows; i++){
-            for (int j = 0; j < cols; j++){
-                for (int k = 0; k < iterations; k++){
-                    result[i][j] += matrix1[i][k]*matrix2[k][j];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                for (int k = 0; k < iterations; k++) {
+                    multiplyResult[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
                 }
             }
         }
-
-        return result;
-
+        return multiplyResult;
     }
 
     public static void main(String[] args) {
 
         System.out.println("Test your code here!\n");
-
-        // Get a result of your code
 
         int[][] a = {
                 {0, 12345},

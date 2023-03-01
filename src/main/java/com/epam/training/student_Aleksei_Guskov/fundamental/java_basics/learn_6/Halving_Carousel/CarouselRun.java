@@ -11,7 +11,6 @@ public class CarouselRun {
     }
 
     public int next() {
-        //throw new UnsupportedOperationException();
         int before;
         if (isFinished()){
             return -1;
@@ -27,10 +26,7 @@ public class CarouselRun {
         }
         return before;
     }
-
-
     public boolean isFinished() {
-        //throw new UnsupportedOperationException();
         for (int el : array) {
             if (el>0){
                 return false;
@@ -38,6 +34,5 @@ public class CarouselRun {
         }
         return true;
     }
-
 }
 

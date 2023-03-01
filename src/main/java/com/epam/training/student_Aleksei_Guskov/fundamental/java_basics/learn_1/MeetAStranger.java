@@ -5,6 +5,5 @@ public class MeetAStranger {
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
         System.out.println("Hello, "+input);
-        //Write a program, which read a String from System.in and print "Hello, <input string>"
     }
 }

@@ -11,19 +11,19 @@ public class Requirements {
     }
 
     public static void checkArgument(boolean value) {
-        if (value == false) throw new IllegalArgumentException("value is false");
+        if (!value) throw new IllegalArgumentException("value is false");
     }
 
     public static void checkArgument(boolean value, String message) {
-        if (value == false) throw new IllegalArgumentException(message);
+        if (!value) throw new IllegalArgumentException(message);
     }
 
     public static void checkState(boolean value) {
-        if (value == false) throw new IllegalStateException("value2 is false");
+        if (!value) throw new IllegalStateException("value2 is false");
     }
 
     public static void checkState(boolean value, String message) {
-        if (value == false) throw new IllegalStateException(message);
+        if (!value) throw new IllegalStateException(message);
     }
 
     public static void checkIndex(int index, int size) {

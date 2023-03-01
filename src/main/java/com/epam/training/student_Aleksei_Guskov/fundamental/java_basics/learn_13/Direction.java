@@ -7,40 +7,60 @@ public enum Direction {
         this.degrees = degrees;
     }
     public static Direction ofDegrees(int degrees) {
-        Direction[] derection = Direction.values();
-        for (int i = 0; i < derection.length; i++) {
-            if (derection[i] == null) return null;
-            if (degrees >= 360) degrees -=360;
-            if (degrees < 0) degrees +=360;
-            if (derection[i].degrees == degrees) return derection[i];
+        Direction[] directionSide = Direction.values();
+        for (int i = 0; i < directionSide.length; i++) {
+            if (directionSide[i] == null) {
+                return null;
+            }
+            if (degrees >= 360) {
+                degrees -=360;
+            }
+            if (degrees < 0) {
+                degrees +=360;
+            }
+            if (directionSide[i].degrees == degrees) return directionSide[i];
         }
        return null;
     }
 
     public static Direction closestToDegrees(int degrees) {
-        Direction[] derection = Direction.values();
-        for (int i = 0; i < derection.length; i++) {
-            if (degrees >= 720) degrees -= 720;
-            if (degrees >= 360) degrees -=360;
-            if (degrees < 0) degrees +=360;
-            if (Math.abs(derection[i].degrees - degrees) < 22) return derection[i];
+        Direction[] directionSide = Direction.values();
+        for (Direction direction : directionSide) {
+            if (degrees >= 720) {
+                degrees -= 720;
+            }
+            if (degrees >= 360) {
+                degrees -= 360;
+            }
+            if (degrees < 0) {
+                degrees += 360;
+            }
+            if (Math.abs(direction.degrees - degrees) < 22) {
+                return direction;
+            }
         }
         return null;
     }
 
     public Direction opposite() {
-        Direction[] derection = Direction.values();
-        int helper = degrees - 180;
-        if (helper<0) helper +=360;
-        for (int i = 0; i < derection.length; i++) {
-            if (derection[i].degrees == helper) return derection[i];
+        Direction[] directionSide = Direction.values();
+        int helperDegrees = degrees - 180;
+        if (helperDegrees < 0) {
+            helperDegrees +=360;
+        }
+        for (Direction direction : directionSide) {
+            if (direction.degrees == helperDegrees) {
+                return direction;
+            }
         }
         return null;
     }
 
     public int differenceDegreesTo(Direction direction) {
-        int x = Math.abs(this.degrees - direction.degrees);
-        if (x > 180) x = 360-x;
-        return x;
+        int differenceOfDegrees = Math.abs(this.degrees - direction.degrees);
+        if (differenceOfDegrees > 180) {
+            differenceOfDegrees = 360 - differenceOfDegrees;
+        }
+        return differenceOfDegrees;
     }
 }

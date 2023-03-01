@@ -17,7 +17,6 @@ public class DecrementingCarousel {
     }
 
     public boolean addElement(int element){
-        //throw new UnsupportedOperationException();
         if (element > 0 && index < capacity && !isRun) {
             carousel[index++] = element;
             return true;
@@ -26,13 +25,11 @@ public class DecrementingCarousel {
     }
 
     public CarouselRun run(){
-        //throw new UnsupportedOperationException();
         if (!isRun) {
             isRun = true;
             return new CarouselRun();
         }
         return null;
     }
-
 }
 

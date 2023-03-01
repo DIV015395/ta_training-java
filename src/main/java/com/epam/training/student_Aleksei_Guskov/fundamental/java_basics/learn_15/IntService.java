@@ -8,7 +8,7 @@ public class IntService {
         Arrays.sort(values);
         return values[values.length-1];
     }
-    public OptionalInt arrOpt(int[] values) {
+    public OptionalInt arrayOptional(int[] values) {
         OptionalInt result;
         if(values != null && values.length > 0) {
             int arr = arrMax(values);

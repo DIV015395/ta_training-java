@@ -10,7 +10,6 @@ public class GraduallyDecreasingCarousel extends DecrementingCarousel{
         return super.addElement(element);
     }
     public CarouselRun run(){
-        //throw new UnsupportedOperationException();
         if (!isRun) {
             isRun = true;
             return new CarouselRun();
@@ -32,11 +31,9 @@ public class GraduallyDecreasingCarousel extends DecrementingCarousel{
                         position = 0;
                         decrement++;
                     }
-                } while ((array[position] <=0) && !isFinished());
+                } while ((array[position] <= 0) && !isFinished());
             }
             return before;
         }
     }
-
-
 }

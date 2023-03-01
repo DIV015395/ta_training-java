@@ -8,7 +8,9 @@ class Triangle {
         this.a = a;
         this.b = b;
         this.c = c;
-        if ((a.getX() == b.getX() && a.getX() == c.getX() && b.getX() == c.getX()) || (a.getY() == b.getY() && a.getY() == c.getY() && b.getY() == c.getY())){      //проверяем точки координат треугольника на вырожденность
+        if ((a.getX() == b.getX() && a.getX() == c.getX() &&
+                b.getX() == c.getX()) || (a.getY() == b.getY() &&
+                a.getY() == c.getY() && b.getY() == c.getY())){      //проверяем точки координат треугольника на вырожденность
             throw new IllegalArgumentException("All points on one line");
         }
         length1 = Math.sqrt(Math.pow(a.getX()- b.getX(),2)+Math.pow(a.getY()-b.getY(),2));                              //находим длины сторон треугольнка
@@ -24,9 +26,8 @@ class Triangle {
     }
 
     public double area() {
-        double halfPerimeter = (length1+length2+length3)/2;                           //находим полупериметр для формулы Герона
-        double s = Math.sqrt(halfPerimeter*(halfPerimeter-length1)*(halfPerimeter-length2)*(halfPerimeter-length3));    //вычисляем площадь по формуле Герона
-        return s;
+        double halfPerimeter = (length1+length2+length3)/2;                           //находим полупериметр для формулы Герона, вычисляем площадь по формуле Герона
+        return Math.sqrt(halfPerimeter*(halfPerimeter-length1)*(halfPerimeter-length2)*(halfPerimeter-length3));
         //TODO
     }
 

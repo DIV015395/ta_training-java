@@ -27,10 +27,10 @@ class Quadrilateral extends Figure {
 
     @Override
     public String pointsToString() {
-        return "("+a.getX()+ "," +a.getY()+")("
-                +b.getX()+ "," +b.getY()+")("
-                +c.getX()+ "," +c.getY()+")("
-                +d.getX()+ "," + d.getY()+")";
+        return "(" + a.getX() + "," + a.getY() + ")(" +
+                b.getX() + "," + b.getY() + ")(" +
+                c.getX() + "," + c.getY() + ")(" +
+                d.getX() + "," + d.getY() + ")";
     }
 
     @Override
@@ -40,9 +40,16 @@ class Quadrilateral extends Figure {
 
     @Override
     public Point leftmostPoint() {
-        if (a.getX() <= b.getX() && a.getX() <= c.getX() && a.getX() <= d.getX()) return a;
-        if (b.getX() <= a.getX() && b.getX() <= c.getX() && b.getX() <= d.getX()) return b;
-        if (c.getX() <= a.getX() && c.getX() <= b.getX() && c.getX() <= d.getX()) return c;
-        else return d;
+        if (a.getX() <= b.getX() && a.getX() <= c.getX() && a.getX() <= d.getX()) {
+            return a;
+        }
+        if (b.getX() <= a.getX() && b.getX() <= c.getX() && b.getX() <= d.getX()) {
+            return b;
+        }
+        if (c.getX() <= a.getX() && c.getX() <= b.getX() && c.getX() <= d.getX()) {
+            return c;
+        } else {
+            return d;
+        }
     }
 }

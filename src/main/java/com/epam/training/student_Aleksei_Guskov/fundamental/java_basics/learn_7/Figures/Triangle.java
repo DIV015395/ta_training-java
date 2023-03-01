@@ -14,13 +14,13 @@ class Triangle extends Figure {
 
     @Override
     public double area() {
-        double halfPerimeter = (length1+length2+length3)/2;                           //находим полупериметр для формулы Герона
-        double s = Math.sqrt(halfPerimeter*(halfPerimeter-length1)*(halfPerimeter-length2)*(halfPerimeter-length3));    //вычисляем площадь по формуле Герона
-        return s;
+        double halfPerimeter = (length1+length2+length3)/2;                           //находим полупериметр для формулы Герона, вычисляем площадь по формуле Герона
+        return Math.sqrt(halfPerimeter*(halfPerimeter-length1)*(halfPerimeter-length2)*(halfPerimeter-length3));
     }
     @Override
     public String pointsToString() {
-        return "(" +a.getX()+ "," +a.getY()+")(" +b.getX()+ "," +b.getY()+ ")(" +c.getX()+ "," +c.getY() + ")";
+        return "(" + a.getX() + "," + a.getY() + ")(" + b.getX() +
+                "," + b.getY() + ")(" + c.getX() + "," + c.getY() + ")";
     }
 
     @Override
@@ -30,8 +30,14 @@ class Triangle extends Figure {
 
     @Override
     public Point leftmostPoint() {
-        if (a.getX() <= b.getX() && a.getX() <= c.getX()) return a;
-        if (b.getX() <= a.getX() && b.getX() <= c.getX()) return b;
-        else return c;
+        if (a.getX() <= b.getX() && a.getX() <= c.getX()) {
+            return a;
+        }
+        if (b.getX() <= a.getX() && b.getX() <= c.getX()) {
+            return b;
+        }
+        else {
+            return c;
+        }
     }
 }

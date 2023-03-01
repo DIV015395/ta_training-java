@@ -5,15 +5,15 @@ import java.util.Scanner;
 public class PizzaSplit {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int persons = scanner.nextInt();    //Enter the number of people
-        int pieces = scanner.nextInt();     //Enter the number of pieces
-        int pizzas = 1;                     //This is number of pizzas (minimum one)
-        double remainder = 1;               //This is auxiliary coefficient
+        int valueOfPersons = scanner.nextInt();
+        int valueOfPieces = scanner.nextInt();
+        int valueOfPizzas = 1;
+        double remainder = 1;
         while(remainder!=0) {
-            remainder=(pizzas * pieces) % persons;  //We consider the remainder
-            pizzas++;                               //increase the number of pizzas
+            remainder=(valueOfPizzas * valueOfPieces) % valueOfPersons;
+            valueOfPizzas++;
         }
-        System.out.println(pizzas-1);               //remove the excess
+        System.out.println(valueOfPizzas-1);
 
     }
 }

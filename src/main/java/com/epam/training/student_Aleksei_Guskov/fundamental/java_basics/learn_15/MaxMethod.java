@@ -5,9 +5,13 @@ import java.util.OptionalInt;
 public class MaxMethod {
     public static OptionalInt max(int[] values) {
         IntService helper = new IntService();
-        OptionalInt result = helper.arrOpt(values);
-        if (result.isPresent()) return result;
-        if (result.isEmpty()) return result;
+        OptionalInt result = helper.arrayOptional(values);
+        if (result.isPresent()) {
+            return result;
+        }
+        if (result.isEmpty()) {
+            return result;
+        }
         return null;
     }
 }

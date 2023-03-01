@@ -18,21 +18,21 @@ public class CatchEmAll {
         try {
             riskyMethod();
         }
-        catch(FileNotFoundException e){
-            throw new IllegalArgumentException("Resource is missing", e);
+        catch(FileNotFoundException exceptionOfMissing){
+            throw new IllegalArgumentException("Resource is missing", exceptionOfMissing);
         }
-        catch(IOException e){
-            throw new IllegalArgumentException("Resource error", e);
+        catch(IOException exceptionOfResourceErr){
+            throw new IllegalArgumentException("Resource error", exceptionOfResourceErr);
         }
-        catch(ArithmeticException | NumberFormatException e){
-            String a = String.valueOf(exception);
-            Pattern p1 = Pattern.compile("java.lang.NumberFormatException: ");
-            Matcher m1 = p1.matcher(a);
-            a = m1.replaceAll("");
-            Pattern p2 = Pattern.compile("java.lang.ArithmeticException: ");
-            Matcher m2 = p2.matcher(a);
-            a = m2.replaceAll("");
-            System.err.println(a);
+        catch(ArithmeticException | NumberFormatException otherExceptions){
+            String outStringOfException = String.valueOf(exception);
+            Pattern numberPattern = Pattern.compile("java.lang.NumberFormatException: ");
+            Matcher numberMatcher = numberPattern.matcher(outStringOfException);
+            outStringOfException = numberMatcher.replaceAll("");
+            Pattern arithmericPattern = Pattern.compile("java.lang.ArithmeticException: ");
+            Matcher arithmeticMatcher = arithmericPattern.matcher(outStringOfException);
+            outStringOfException = arithmeticMatcher.replaceAll("");
+            System.err.println(outStringOfException);
         }
     }
 }

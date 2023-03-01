@@ -3,27 +3,22 @@ package com.epam.training.student_Aleksei_Guskov.fundamental.java_basics.learn_5
 public class Line {
     int k;
     int b;
-
     public Line(int k, int b) {
         this.k = k;
         this.b = b;
-
     }
-
     public Point intersection(Line other) {
-        if (this.k == other.k){
+        if (this.k == other.k) {
             return null;
         }
-        if (this.b == other.b){
-            int x=0;
-            int y=this.b;
+        if (this.b == other.b) {
+            int x = 0;
+            int y = this.b;
             return new Point(x,y);
         } else {
             int x = (other.b - this.b) / (this.k - other.k);
-            int y = this.k*x+this.b;
+            int y = (this.k * x) + this.b;
             return new Point(x, y);
         }
-        //throw new UnsupportedOperationException();
     }
-
 }

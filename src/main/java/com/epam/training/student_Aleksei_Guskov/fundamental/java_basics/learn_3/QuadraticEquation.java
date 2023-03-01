@@ -12,13 +12,13 @@ public class QuadraticEquation {
         double b = scanner.nextDouble();
         double c = scanner.nextDouble();
         double discriminant = b*b-4*a*c;
-        if (discriminant>0) {
-            double x1 = (-b + sqrt(discriminant))/(2*a);
-            double x2 = (-b - sqrt(discriminant))/(2*a);
-            System.out.println(x1 +" "+ x2);
-        } else if (discriminant==0) {
+        if (discriminant > 0) {
+            double firstX = (-b + sqrt(discriminant))/(2*a);
+            double secondX = (-b - sqrt(discriminant))/(2*a);
+            System.out.println(firstX +" "+ secondX);
+        } else if (discriminant == 0) {
             double x = -b/(a*2);
-            if (x==-0.0) {
+            if (x == -0.0) {
                 System.out.println("0.0");
             } else {
                 System.out.println(x);

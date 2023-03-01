@@ -14,15 +14,13 @@ public class SumOfPrevious {
         boolean[] expected = new boolean[array.length];
         Arrays.fill(expected, false);
         for (int i = 0; i < array.length-2; i++) {
-            int sum = (array[i] + array[i + 1]);
-            if (sum == array[i + 2]) {
+            int sum = (array[i] + array[i+1]);
+            if (sum == array[i+2]) {
                 expected[i+2] = true;
             } else {
                 expected[i+2] = false;
             }
-
         }
-        //throw new UnsupportedOperationException();
         return expected;
     }
 }

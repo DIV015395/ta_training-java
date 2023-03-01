@@ -12,42 +12,41 @@ public class LocalMaximaRemove {
     }
 
     public static int[] removeLocalMaxima(int[] array) {
-        int[] array2 = new int[array.length];
+        int[] newArray = new int[array.length];
         int indexExpected = 0;
-        for (int i = 0; i<1;i++){
-            if (array[0]<=array[1]){
-                array2[0]=1;
+        for (int i = 0; i < 1; i++){
+            if (array[0] <= array[1]) {
+                newArray[0] = 1;
                 indexExpected++;
             } else {
-                array2[0]=0;
+                newArray[0] = 0;
             }
         }
-        for (int i = 1; i<array.length-1;i++){
-            if (array[i]<=array[i-1]||array[i]<=array[i+1]){
-                array2[i]=1;
+        for (int i = 1; i < array.length-1; i++){
+            if (array[i] <= array[i-1] || array[i] <= array[i+1]) {
+                newArray[i] = 1;
                 indexExpected++;
             } else {
-                array2[i]=0;
+                newArray[i] = 0;
             }
         }
-        for (int i=array.length-1;i<array.length;i++){
-            if (array[i]<=array[i-1]){
-                array2[i]=1;
+        for (int i = array.length-1; i < array.length; i++) {
+            if (array[i] <= array[i-1]) {
+                newArray[i] = 1;
                 indexExpected++;
             } else {
-                array2[i]=0;
+                newArray[i] = 0;
             }
         }
         int[] expected = new int[indexExpected];
-        int j=0;
-        for (int i = 0; i<array.length;i++) {
-            if (array2[i]==1){
-                expected[j]=array[i];
-                j++;
+        int newIndex = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (newArray[i] == 1){
+                expected[newIndex] = array[i];
+                newIndex++;
             }
         }
         return expected;
-        //throw new UnsupportedOperationException();
     }
 }
 

@@ -5,17 +5,13 @@ import java.util.Scanner;
 public class ElectronicWatch {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int seconds = scanner.nextInt();
-        //int topBorder = 86401;
-        //int botBorder = 0;
-        int hourOut = (int) Math.floor(seconds/3600); //determine the number of hours
-        int minuteOut =  (int) Math.floor ((seconds - hourOut*3600)/60); //determine the number of minutes
-        int secondOut = (int) Math.floor ((seconds - hourOut*3600-minuteOut*60)); //determine the number of seconds
-        String resultHours = (hourOut == (24)) ? "0" : ""+hourOut ; //set parameters for displaying hours
-        String resultMinutes = (minuteOut < (10)) ? "0"+minuteOut : ""+minuteOut ; //set parameters for displaying minutes
-        String resultSeconds = (secondOut < (10)) ? "0"+secondOut : ""+secondOut ; //set parameters for displaying seconds
-        //String result = (seconds > topBorder | seconds < botBorder) ? "There are no such numbers in the day!" : "" +resultHours+":"+resultMinutes+":"+resultSeconds ;
-        String result = "" +resultHours+":"+resultMinutes+":"+resultSeconds ; //Total!
-        System.out.println(result);//And out on display!
+        int secondsInput = scanner.nextInt();
+        int hourOut = (int) Math.floor(secondsInput/3600);
+        int minuteOut =  (int) Math.floor ((secondsInput - hourOut*3600)/60);
+        int secondOut = (int) Math.floor ((secondsInput - hourOut*3600-minuteOut*60));
+        String resultHours = (hourOut == (24)) ? "0" : ""+hourOut ;
+        String resultMinutes = (minuteOut < (10)) ? "0" + minuteOut : "" + minuteOut ;
+        String resultSeconds = (secondOut < (10)) ? "0" + secondOut : "" + secondOut ;
+        System.out.println("" +resultHours+":"+resultMinutes+":"+resultSeconds);
     }
 }

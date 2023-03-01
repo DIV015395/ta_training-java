@@ -9,21 +9,18 @@ public class SumOfEvenNumbers {
     }
 
     public static int sum(int[] array){
-        int sum = 0;
+        int sumEvenValues = 0;
         if (array != null) {
             for (int i = 0; i < array.length; i++) {
-                int a = array[i] % 2;
-                if (a == 0) {
-                    sum += array[i];
+                int valueOfHalfArrays = array[i] % 2;
+                if (valueOfHalfArrays == 0) {
+                    sumEvenValues += array[i];
                 }
             }
-            return sum;
+            return sumEvenValues;
         } else {
-            sum = 0;
-            return sum;
+            sumEvenValues = 0;
+            return sumEvenValues;
         }
-        //put your code here
-
-        //throw new UnsupportedOperationException();
     }
 }

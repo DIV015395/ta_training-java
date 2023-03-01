@@ -5,7 +5,7 @@ import java.util.List;
 
 public class House<T> {
 
-    private final List<T> residents = new ArrayList();
+    private final List<T> residents = new ArrayList<>();
 
     public void enter(Object resident) {
         residents.add((T) resident);
