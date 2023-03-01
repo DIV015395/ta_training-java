@@ -1,9 +1,7 @@
-/*
-Class: Airport
-version: 1.1
-made by Vitali Shulha
-4-Jan-2019
-*/
+//Class: Airport
+//version: 1.1
+//made by Vitali Shulha
+//4-Jan-2019
 
 package com.epam.training.student_Aleksei_Guskov.fundamental.main_task;
 
