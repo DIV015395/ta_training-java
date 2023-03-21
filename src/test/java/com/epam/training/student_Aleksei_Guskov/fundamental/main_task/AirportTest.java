@@ -1,18 +1,17 @@
 package com.epam.training.student_Aleksei_Guskov.fundamental.main_task;
 
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.ExperimentalPlane;
+import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.MilitaryPlane;
+import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.PassengerPlane;
+import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.Plane;
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.ClassificationLevel;
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.ExperimentalTypes;
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.MilitaryType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.MilitaryPlane;
-import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.PassengerPlane;
-import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.Plane;
 
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Arrays;
+import java.util.List;
 
 public class AirportTest {
     private static List<Plane> planes = Arrays.asList(
@@ -89,12 +88,9 @@ public class AirportTest {
     }
 
     @Test
-    public void testExperimentalPlanesHasClassificationLevelHigherThanUnclassified(){
+    public void testExperimentalPlanesHasClassificationLevelHigherThanUnclassified() {
         Airport airport = new Airport(planes);
-        String experimentalPlanesToString = new String(airport.getExperimentalPlanes().toString());
-        Pattern unclassified = Pattern.compile("UNCLASSIFIED");
-        Matcher findInStringUnclassified = unclassified.matcher(experimentalPlanesToString);
-        Assert.assertFalse(findInStringUnclassified.find());
-
+        String experimentalPlanesToString = airport.getExperimentalPlanes().toString();
+        Assert.assertFalse(experimentalPlanesToString.contains("UNCLASSIFIED"));
     }
 }

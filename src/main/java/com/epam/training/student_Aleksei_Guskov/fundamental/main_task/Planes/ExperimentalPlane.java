@@ -2,6 +2,7 @@ package com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes;
 
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.ClassificationLevel;
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.ExperimentalTypes;
+import java.util.Objects;
 
 public class ExperimentalPlane extends Plane{
 
@@ -23,19 +24,23 @@ public class ExperimentalPlane extends Plane{
 
     @Override
     public boolean equals(Object otherPlane) {
-        return super.equals(otherPlane);
+        ExperimentalPlane plane = (ExperimentalPlane) otherPlane;
+        return super.equals(otherPlane) &&
+                Objects.equals(type, plane.type) &&
+                Objects.equals(classificationLevel, plane.classificationLevel);
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(super.hashCode(), type, classificationLevel);
     }
 
     @Override
     public String toString() {
-        return "experimentalPlane{" +
-                "model='" + model + '\'' +
-                ", classification level='" + classificationLevel + '\'' +
-                '}';
+        return "ExperimentalPlane{" +
+                "type=" + type +
+                ", classificationLevel=" + classificationLevel +
+                ", model='" + model + '\'' +
+                "} " + super.toString();
     }
 }

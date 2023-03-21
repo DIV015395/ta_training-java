@@ -2,7 +2,7 @@ package com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes;
 
 import java.util.Objects;
 
-public class PassengerPlane extends Plane{
+public class PassengerPlane extends Plane {
 
     private int passengersCapacity;
 
@@ -18,14 +18,17 @@ public class PassengerPlane extends Plane{
 
     @Override
     public String toString() {
-        return super.toString().replace("}",
-                ", passengersCapacity=" + passengersCapacity +
-                        '}');
+        return "PassengerPlane{" +
+                "passengersCapacity=" + passengersCapacity +
+                ", model='" + model + '\'' +
+                "} " + super.toString();
     }
 
     @Override
     public boolean equals(Object otherPlane) {
-        return super.equals(otherPlane);
+        PassengerPlane plane = (PassengerPlane) otherPlane;
+        return super.equals(otherPlane) &&
+                Objects.equals(passengersCapacity, plane.passengersCapacity);
     }
 
     @Override
