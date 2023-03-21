@@ -41,6 +41,6 @@ public class ExperimentalPlane extends Plane{
                 "type=" + type +
                 ", classificationLevel=" + classificationLevel +
                 ", model='" + model + '\'' +
-                "} " + super.toString();
+                '}';
     }
 }

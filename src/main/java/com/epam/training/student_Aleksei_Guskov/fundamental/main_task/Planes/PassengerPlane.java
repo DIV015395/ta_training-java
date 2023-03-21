@@ -21,7 +21,7 @@ public class PassengerPlane extends Plane {
         return "PassengerPlane{" +
                 "passengersCapacity=" + passengersCapacity +
                 ", model='" + model + '\'' +
-                "} " + super.toString();
+                '}';
     }
 
     @Override
