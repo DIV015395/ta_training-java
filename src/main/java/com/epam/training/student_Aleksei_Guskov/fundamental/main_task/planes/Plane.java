@@ -1,9 +1,9 @@
-package com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes;
+package com.epam.training.student_Aleksei_Guskov.fundamental.main_task.planes;
 
 import java.util.Objects;
 
 abstract public class Plane {
-    String model;
+    private String model;
     private int maxSpeed;
     private int maxFlightDistance;
     private int maxLoadCapacity;
@@ -14,6 +14,10 @@ abstract public class Plane {
         this.maxSpeed = maxSpeed;
         this.maxFlightDistance = maxFlightDistance;
         this.maxLoadCapacity = maxLoadCapacity;
+    }
+
+    public String getModel() {
+        return model;
     }
 
     public int getMaxSpeed() {
@@ -41,9 +45,11 @@ abstract public class Plane {
     @Override
     public boolean equals(Object otherPlane) {
         Plane plane = (Plane) otherPlane;
+        boolean nullEquals = (plane == null && otherPlane == null) || (otherPlane != null && plane.equals(otherPlane));
         return maxSpeed == plane.maxSpeed &&
                 maxFlightDistance == plane.maxFlightDistance &&
                 maxLoadCapacity == plane.maxLoadCapacity &&
+                nullEquals &&
                 Objects.equals(model, plane.model);
     }
 

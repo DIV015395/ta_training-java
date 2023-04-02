@@ -1,9 +1,9 @@
 package com.epam.training.student_Aleksei_Guskov.fundamental.main_task;
 
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.MilitaryType;
-import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.MilitaryPlane;
-import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.PassengerPlane;
-import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.Plane;
+import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.planes.MilitaryPlane;
+import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.planes.PassengerPlane;
+import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.planes.Plane;
 
 import java.util.Arrays;
 import java.util.List;

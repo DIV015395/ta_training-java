@@ -1,4 +1,4 @@
-package com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes;
+package com.epam.training.student_Aleksei_Guskov.fundamental.main_task.planes;
 
 import java.util.Objects;
 
@@ -20,7 +20,6 @@ public class PassengerPlane extends Plane {
     public String toString() {
         return "PassengerPlane{" +
                 "passengersCapacity=" + passengersCapacity +
-                ", model='" + model + '\'' +
                 '}';
     }
 

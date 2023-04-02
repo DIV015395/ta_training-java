@@ -1,9 +1,9 @@
 package com.epam.training.student_Aleksei_Guskov.fundamental.main_task;
 
-import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.ExperimentalPlane;
-import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.MilitaryPlane;
-import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.PassengerPlane;
-import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes.Plane;
+import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.planes.ExperimentalPlane;
+import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.planes.MilitaryPlane;
+import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.planes.PassengerPlane;
+import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.planes.Plane;
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.ClassificationLevel;
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.ExperimentalTypes;
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.MilitaryType;
@@ -81,7 +81,7 @@ public class AirportTest {
     }
 
     @Test
-    public void testHasBombersInMilitaryPlanes() {
+    public void testGetBombersMilitaryPlanes() {
         Airport airport = new Airport(planes);
         List<MilitaryPlane> bomberMilitaryPlanes = airport.getBomberMilitaryPlanes();
         Assert.assertTrue(bomberMilitaryPlanes.equals(planeBomberMilitaryType));

@@ -1,4 +1,4 @@
-package com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes;
+package com.epam.training.student_Aleksei_Guskov.fundamental.main_task.planes;
 
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.ClassificationLevel;
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.ExperimentalTypes;
@@ -40,7 +40,6 @@ public class ExperimentalPlane extends Plane{
         return "ExperimentalPlane{" +
                 "type=" + type +
                 ", classificationLevel=" + classificationLevel +
-                ", model='" + model + '\'' +
                 '}';
     }
 }

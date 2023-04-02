@@ -1,4 +1,4 @@
-package com.epam.training.student_Aleksei_Guskov.fundamental.main_task.Planes;
+package com.epam.training.student_Aleksei_Guskov.fundamental.main_task.planes;
 
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.MilitaryType;
 
@@ -20,9 +20,9 @@ public class MilitaryPlane extends Plane{
 
     @Override
     public String toString() {
-        return super.toString().replace("}",
-                ", type=" + type +
-                        '}');
+        return "MilitaryPlane{" +
+                "type=" + type +
+                '}';
     }
 
     @Override
