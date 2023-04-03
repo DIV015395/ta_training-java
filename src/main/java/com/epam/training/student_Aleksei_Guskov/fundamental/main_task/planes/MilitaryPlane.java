@@ -4,7 +4,7 @@ import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.Mil
 
 import java.util.Objects;
 
-public class MilitaryPlane extends Plane{
+public class MilitaryPlane extends Plane {
 
     private MilitaryType type;
 
@@ -22,7 +22,7 @@ public class MilitaryPlane extends Plane{
     public String toString() {
         return "MilitaryPlane{" +
                 "type=" + type +
-                '}';
+                "} " + super.toString();
     }
 
     @Override

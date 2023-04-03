@@ -44,13 +44,17 @@ abstract public class Plane {
 
     @Override
     public boolean equals(Object otherPlane) {
+        if (this == otherPlane) {
+            return true;
+        }
+        if (!(otherPlane instanceof Plane)) {
+            return false;
+        }
         Plane plane = (Plane) otherPlane;
-        boolean nullEquals = (plane == null && otherPlane == null) || (otherPlane != null && plane.equals(otherPlane));
         return maxSpeed == plane.maxSpeed &&
                 maxFlightDistance == plane.maxFlightDistance &&
                 maxLoadCapacity == plane.maxLoadCapacity &&
-                nullEquals &&
-                Objects.equals(model, plane.model);
+                model.equals(plane.model);
     }
 
     @Override

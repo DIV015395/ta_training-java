@@ -4,7 +4,7 @@ import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.Cla
 import com.epam.training.student_Aleksei_Guskov.fundamental.main_task.models.ExperimentalTypes;
 import java.util.Objects;
 
-public class ExperimentalPlane extends Plane{
+public class ExperimentalPlane extends Plane {
 
     private ExperimentalTypes type;
     private ClassificationLevel classificationLevel;
@@ -21,6 +21,13 @@ public class ExperimentalPlane extends Plane{
         return classificationLevel;
     }
 
+    @Override
+    public String toString() {
+        return "ExperimentalPlane{" +
+                "type=" + type +
+                ", classificationLevel=" + classificationLevel +
+                "} " + super.toString();
+    }
 
     @Override
     public boolean equals(Object otherPlane) {
@@ -35,11 +42,5 @@ public class ExperimentalPlane extends Plane{
         return Objects.hash(super.hashCode(), type, classificationLevel);
     }
 
-    @Override
-    public String toString() {
-        return "ExperimentalPlane{" +
-                "type=" + type +
-                ", classificationLevel=" + classificationLevel +
-                '}';
-    }
+
 }

@@ -20,7 +20,7 @@ public class PassengerPlane extends Plane {
     public String toString() {
         return "PassengerPlane{" +
                 "passengersCapacity=" + passengersCapacity +
-                '}';
+                "} " + super.toString();
     }
 
     @Override

@@ -34,7 +34,8 @@ public class AirportTest {
     );
 
     private static PassengerPlane planeWithMaxPassengerCapacity = new PassengerPlane("Boeing-747", 980, 16100, 70500, 242);
-    private static MilitaryPlane planeTransportMilitaryType = new MilitaryPlane("C-130 Hercules", 650, 5000, 110000, MilitaryType.TRANSPORT);
+    private static List<MilitaryPlane> planeTransportMilitaryType = Arrays.asList(
+            new MilitaryPlane("C-130 Hercules", 650, 5000, 110000, MilitaryType.TRANSPORT));
     private static List<MilitaryPlane> planeBomberMilitaryType = Arrays.asList(
             new MilitaryPlane("B-1B Lancer", 1050, 21000, 80000, MilitaryType.BOMBER),
             new MilitaryPlane("B-2 Spirit", 1030, 22000, 70000, MilitaryType.BOMBER),
@@ -61,15 +62,20 @@ public class AirportTest {
     @Test
     public void testGetTransportMilitaryPlanes() {
         Airport airport = new Airport(planes);
-        MilitaryPlane expectedTransportMilitaryPlanes = airport.getTransportMilitaryPlanes().get(0);
-        Assert.assertTrue(expectedTransportMilitaryPlanes.equals(planeTransportMilitaryType));
+        List<MilitaryPlane> expectedTransportMilitaryPlanes = airport.getTransportMilitaryPlanes();
+        Assert.assertEquals(planeTransportMilitaryType, expectedTransportMilitaryPlanes);
     }
-
+    @Test
+    public void testGetBombersMilitaryPlanes() {
+        Airport airport = new Airport(planes);
+        List<MilitaryPlane> bomberMilitaryPlanes = airport.getBomberMilitaryPlanes();
+        Assert.assertEquals(planeBomberMilitaryType, bomberMilitaryPlanes);
+    }
     @Test
     public void testGetPassengerPlaneWithMaxCapacity() {
         Airport airport = new Airport(planes);
         PassengerPlane expectedPlaneWithMaxPassengersCapacity = airport.getPassengerPlaneWithMaxPassengersCapacity();
-        Assert.assertTrue(expectedPlaneWithMaxPassengersCapacity.equals(planeWithMaxPassengerCapacity));
+        Assert.assertEquals(planeWithMaxPassengerCapacity, expectedPlaneWithMaxPassengersCapacity);
     }
 
     @Test
@@ -77,14 +83,7 @@ public class AirportTest {
         Airport airport = new Airport(planes);
         airport.sortByMaxLoadCapacity();
         List<? extends Plane> planesSortedByMaxLoadCapacity = airport.getPlanes();
-        Assert.assertTrue(planesSortedByMaxLoadCapacity.equals(sortedPlaneByMaxLoadCapacity));
-    }
-
-    @Test
-    public void testGetBombersMilitaryPlanes() {
-        Airport airport = new Airport(planes);
-        List<MilitaryPlane> bomberMilitaryPlanes = airport.getBomberMilitaryPlanes();
-        Assert.assertTrue(bomberMilitaryPlanes.equals(planeBomberMilitaryType));
+        Assert.assertEquals(sortedPlaneByMaxLoadCapacity, planesSortedByMaxLoadCapacity);
     }
 
     @Test
