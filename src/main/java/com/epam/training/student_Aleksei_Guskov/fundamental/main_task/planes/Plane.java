@@ -54,7 +54,7 @@ abstract public class Plane {
         return maxSpeed == plane.maxSpeed &&
                 maxFlightDistance == plane.maxFlightDistance &&
                 maxLoadCapacity == plane.maxLoadCapacity &&
-                model.equals(plane.model);
+                Objects.requireNonNull(model).equals(plane.model);
     }
 
     @Override
