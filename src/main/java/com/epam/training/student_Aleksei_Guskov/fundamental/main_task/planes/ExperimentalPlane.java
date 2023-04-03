@@ -30,9 +30,9 @@ public class ExperimentalPlane extends Plane {
     }
 
     @Override
-    public boolean equals(Object otherPlane) {
-        ExperimentalPlane plane = (ExperimentalPlane) otherPlane;
-        return super.equals(otherPlane) &&
+    public boolean equals(Object other) {
+        ExperimentalPlane plane = (ExperimentalPlane) other;
+        return super.equals(other) &&
                 Objects.equals(type, plane.type) &&
                 Objects.equals(classificationLevel, plane.classificationLevel);
     }

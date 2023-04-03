@@ -24,9 +24,9 @@ public class PassengerPlane extends Plane {
     }
 
     @Override
-    public boolean equals(Object otherPlane) {
-        PassengerPlane plane = (PassengerPlane) otherPlane;
-        return super.equals(otherPlane) &&
+    public boolean equals(Object other) {
+        PassengerPlane plane = (PassengerPlane) other;
+        return super.equals(other) &&
                 Objects.equals(passengersCapacity, plane.passengersCapacity);
     }
 
