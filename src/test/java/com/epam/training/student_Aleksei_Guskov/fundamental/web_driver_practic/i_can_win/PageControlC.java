@@ -11,7 +11,6 @@ import java.time.Duration;
 public class PageControlC {
     private static final String URL_CONTROL_C = "https://controlc.com/";
     private final WebDriver driver;
-    private String textForArea, textForTitle;
     @FindBy(
             xpath = "//textarea[@id='input_text']"
     )
@@ -32,17 +31,22 @@ public class PageControlC {
     public PageControlC openPage() {
         this.driver.get(URL_CONTROL_C);
         WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+        webDriverWait.until(webDriver -> textArea.isEnabled());
         return this;
     }
     public PageControlC pasteTextInArea(String textForArea) {
         this.textArea.sendKeys(textForArea);
-        return new PageControlC(this.driver);
+        return this;
     }
     public PageControlC pasteTextInTitle(String textForTitle) {
         this.titleArea.sendKeys(textForTitle);
-        return new PageControlC(this.driver);
+        return this;
     }
-    public void selectorHighlightingOptionChoice () {
+    public PageControlC selectorHighlightingOptionChoice() {
         this.selectHighlightingOptionYes.click();
+        return this;
+    }
+    public String getTextFromTextArea() {
+        return this.textArea.getAttribute("value");
     }
 }

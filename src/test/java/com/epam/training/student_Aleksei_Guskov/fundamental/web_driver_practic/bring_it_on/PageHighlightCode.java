@@ -16,9 +16,9 @@ public class PageHighlightCode {
     )
     private WebElement selectInputLanguageBash;
     @FindBy(
-            xpath = "//input[@id='lineNumbers']"
+            xpath = "//input[@id='fontTag']"
     )
-    private WebElement selectOptionLineNumbers;
+    private WebElement selectOptionFontTag;
     @FindBy (
             xpath = "//input[@type='submit']"
     )
@@ -27,6 +27,10 @@ public class PageHighlightCode {
             xpath = "//textarea[@id='inputCode']"
     )
     private WebElement textArea;
+    @FindBy (
+            xpath = "//div[@id='preview']/blockquote"
+    )
+    private WebElement previewArea;
     public PageHighlightCode(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -34,15 +38,23 @@ public class PageHighlightCode {
     public PageHighlightCode openPage() {
         this.driver.get(URL_HIGHLIGHT_CODE);
         WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+        webDriverWait.until(webDriver -> textArea.isEnabled());
         return this;
     }
-    public void selectorOptionsLineNumbersAndLanguage() {
+    public PageHighlightCode selectorOptionsFontTagAndLanguage() {
         this.selectInputLanguageBash.click();
-        this.selectOptionLineNumbers.click();
+        this.selectOptionFontTag.click();
         this.submitButton.click();
+        return this;
     }
     public PageHighlightCode pasteTextInArea(String textForArea) {
         this.textArea.sendKeys(textForArea);
         return new PageHighlightCode(this.driver);
+    }
+    public String getTextFromPreviewArea() {
+        return this.previewArea.getText();
+    }
+    public String getValueSelectedLanguage() {
+        return this.selectInputLanguageBash.getAttribute("value");
     }
 }
