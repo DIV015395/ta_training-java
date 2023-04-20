@@ -26,9 +26,9 @@ public class MilitaryPlane extends Plane {
     }
 
     @Override
-    public boolean equals(Object otherPlane) {
-        MilitaryPlane plane = (MilitaryPlane) otherPlane;
-        return super.equals(otherPlane) &&
+    public boolean equals(Object other) {
+        MilitaryPlane plane = (MilitaryPlane) other;
+        return super.equals(other) &&
                 Objects.equals(type, plane.type);
     }
 
