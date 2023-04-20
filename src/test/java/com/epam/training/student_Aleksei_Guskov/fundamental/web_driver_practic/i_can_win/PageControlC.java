@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class PageControlC {
     private static final String URL_CONTROL_C = "https://controlc.com/";
-    private WebDriver driver;
+    private final WebDriver driver;
     private String textForArea, textForTitle;
     @FindBy(
             xpath = "//textarea[@id='input_text']"
