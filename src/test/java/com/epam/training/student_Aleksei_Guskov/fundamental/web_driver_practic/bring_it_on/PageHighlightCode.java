@@ -31,6 +31,10 @@ public class PageHighlightCode {
             xpath = "//div[@id='preview']/blockquote"
     )
     private WebElement previewArea;
+    @FindBy(
+            xpath = "//input[@id='fontTag'][@checked]"
+    )
+    private WebElement checkBoxFrontTag;
     public PageHighlightCode(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -56,5 +60,8 @@ public class PageHighlightCode {
     }
     public String getValueSelectedLanguage() {
         return this.selectInputLanguageBash.getAttribute("value");
+    }
+    public boolean checkBoxUseFrontTagChecking() {
+        return this.checkBoxFrontTag.isEnabled();
     }
 }

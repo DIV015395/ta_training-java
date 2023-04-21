@@ -19,18 +19,27 @@ public class PasteForTheSecondExercise {
         this.driver = new ChromeDriver();
     }
     @Test
-    public void pasteAndExamTextInAreaAndSelectedLanguageOptions() throws InterruptedException {
-        Assert.assertTrue((
-                pasteTextInTextAreaAndSelectLanguageOption().getTextFromPreviewArea()
-                        .equals(TEXT_FOR_AREA) &&
-                (pasteTextInTextAreaAndSelectLanguageOption().getValueSelectedLanguage()
-                        .equals("bash"))));
+    public void pasteAndExamTextInAreaEqualsOfPattern() throws InterruptedException {
+        Assert.assertEquals(
+                pasteTextInTextAreaAndSelectLanguageOption().getTextFromPreviewArea(),
+                TEXT_FOR_AREA);
+    }
+    @Test
+    public void pasteAndExamSelectOfBashLanguageOption() throws InterruptedException {
+        Assert.assertEquals(
+                pasteTextInTextAreaAndSelectLanguageOption().getValueSelectedLanguage(),
+                "bash");
+    }
+    @Test
+    public void pasteAndExamSelectCheckBoxUseFontTag() throws InterruptedException {
+        Assert.assertTrue(
+                pasteTextInTextAreaAndSelectLanguageOption().checkBoxUseFrontTagChecking());
     }
     public PageHighlightCode pasteTextInTextAreaAndSelectLanguageOption() throws InterruptedException {
         PageHighlightCode pageHighlightCode = new PageHighlightCode(this.driver).openPage()
                 .pasteTextInArea(TEXT_FOR_AREA)
                 .selectorOptionsFontTagAndLanguage();
-        Thread.sleep(1000);
+        Thread.sleep(500);
         return pageHighlightCode;
     }
     @AfterMethod(
