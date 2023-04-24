@@ -21,7 +21,7 @@ public class PasteForTheFirstExercise {
                 .pasteTextInArea("Hello from WebDriver")
                 .pasteTextInTitle("helloweb")
                 .selectorHighlightingOptionChoice();
-        Thread.sleep(4000);
+//        Thread.sleep(500);
         Assert.assertEquals(pageControlC.getTextFromTextArea(), "Hello from WebDriver");
     }
     @AfterMethod(
