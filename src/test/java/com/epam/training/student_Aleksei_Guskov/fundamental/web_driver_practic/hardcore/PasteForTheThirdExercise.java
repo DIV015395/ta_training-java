@@ -24,15 +24,24 @@ public class PasteForTheThirdExercise {
                 .imitationPressEnter()
                 .selectSearchResult();
     }
-    public PageGooglePlatformCalculator createNewPlatform() {
+    public void createNewPlatform() {
         openGoogleAndFindTheDesiredResult();
-        PageGooglePlatformCalculator pageGooglePlatformCalculator = new PageGooglePlatformCalculator(this.driver)
-                .inputNumberOfInstances();
-        return pageGooglePlatformCalculator;
+        new PageGooglePlatformCalculator(this.driver)
+                .searchComputeEngineOption()
+                .inputNumberOfInstances(NUMBER_OF_INSTANCES)
+                .selectFreeOperatingSystem()
+                .selectRegularProvisioningModel()
+                .selectNOneSeries()
+                .selectMachineType()
+                .addGPUsOperations()
+                .selectLocalSSD()
+                .selectRegionOption()
+                .selectCommittedUsageOptionAndAddToEstimate();
     }
     @Test
     public void test() {
         createNewPlatform();
+        PageWhitEstimate pageWhitEstimate= new PageWhitEstimate(this.driver).examEstimateOnly();
     }
     @AfterMethod(alwaysRun = true)
     public void browserTearDown() {
