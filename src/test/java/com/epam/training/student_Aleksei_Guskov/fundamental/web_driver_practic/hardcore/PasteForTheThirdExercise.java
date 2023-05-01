@@ -12,6 +12,14 @@ public class PasteForTheThirdExercise {
 
     private static final String SEARCHING_TEXT= "Google Cloud Platform Pricing Calculator";
     private static final String NUMBER_OF_INSTANCES = "4";
+    private static final String PROVISIONING_MODEL = "Provisioning model: Regular";
+    private static final String INSTANCE_TYPE = "Instance type: n1-standard-8\n" +
+            "Committed Use Discount applied";
+    private static final String REGION = "Region: Frankfurt";
+    private static final String LOCAL_SSD = "Local SSD: 2x375 GiB\n" +
+            "Committed Use Discount applied";
+    private static final String COMMITMENT_TERM = "Commitment term: 1 Year";
+    private static final String TOTAL_ESTIMATED = "Total Estimated Cost: USD 1,840.40 per 1 month";
     @BeforeMethod(alwaysRun = true)
     public void browserSetup() {
         this.driver = new ChromeDriver();
@@ -24,7 +32,7 @@ public class PasteForTheThirdExercise {
                 .imitationPressEnter()
                 .selectSearchResult();
     }
-    public void createNewPlatform() {
+    public void createNewPlatform() throws InterruptedException {
         openGoogleAndFindTheDesiredResult();
         new PageGooglePlatformCalculator(this.driver)
                 .searchComputeEngineOption()
@@ -39,9 +47,23 @@ public class PasteForTheThirdExercise {
                 .selectCommittedUsageOptionAndAddToEstimate();
     }
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
         createNewPlatform();
         PageWhitEstimate pageWhitEstimate= new PageWhitEstimate(this.driver).examEstimateOnly();
+        softAssert.assertEquals(pageWhitEstimate.getTextFromProvisioningModel(),
+                PROVISIONING_MODEL, "Provisioning model is not Regular!");
+        softAssert.assertEquals(pageWhitEstimate.getTextFromInstanceType(),
+                INSTANCE_TYPE, "Instance type is not n1-standard-8!");
+        softAssert.assertEquals(
+                pageWhitEstimate.getTextFromRegion(),
+                REGION, "Region is not Frankfurt!");
+        softAssert.assertEquals(pageWhitEstimate.getTextFromLocalSSD(),
+                LOCAL_SSD, "Local SSD is not 2x375 GiB!");
+        softAssert.assertEquals(pageWhitEstimate.getTextFromCommitmentTerm(),
+                COMMITMENT_TERM, "Commitment term is not 1 Year!");
+        softAssert.assertEquals(pageWhitEstimate.getTexFromTotalEstimated(),
+                TOTAL_ESTIMATED, "Total estimated is not equaled!!!");
+        softAssert.assertAll();
     }
     @AfterMethod(alwaysRun = true)
     public void browserTearDown() {

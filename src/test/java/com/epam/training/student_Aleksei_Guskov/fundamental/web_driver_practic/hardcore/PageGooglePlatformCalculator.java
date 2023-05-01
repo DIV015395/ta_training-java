@@ -94,8 +94,9 @@ public class PageGooglePlatformCalculator {
         this.nOneSeries.click();
         return this;
     }
-    public PageGooglePlatformCalculator selectMachineType() {
+    public PageGooglePlatformCalculator selectMachineType() throws InterruptedException {
         this.machineTypeSelector.click();
+        Thread.sleep(10);
         WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
         webDriverWait.until(webDriver -> nOneStandardOptionMachine.isDisplayed());
         this.nOneStandardOptionMachine.click();

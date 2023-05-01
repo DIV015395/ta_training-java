@@ -12,6 +12,18 @@ public class PageWhitEstimate {
     private WebDriver driver;
     @FindBy (xpath = "//h2[text()='Estimate']")
     private WebElement estimateHeadAfterCalculation;
+    @FindBy (xpath = "//md-list-item[4]/div[1]")
+    private WebElement provisioningModelLine;
+    @FindBy (xpath = "//md-list-item[5]/div[1]")
+    private WebElement instanceTypeLine;
+    @FindBy (xpath = "//md-list-item[1]/div[1]")
+    private WebElement regionLine;
+    @FindBy (xpath = "//md-list-item[8]/div[1]")
+    private WebElement localSSDLine;
+    @FindBy (xpath = "//md-list-item[3]/div[1]")
+    private WebElement commitmentTermLine;
+    @FindBy (xpath = "//h2/b")
+    private WebElement totalEstimatedLine;
     public PageWhitEstimate(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -20,5 +32,23 @@ public class PageWhitEstimate {
         WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
         webDriverWait.until(webDriver -> estimateHeadAfterCalculation.isDisplayed());
         return this;
+    }
+    public String getTextFromProvisioningModel() {
+        return this.provisioningModelLine.getText();
+    }
+    public String getTextFromInstanceType() {
+        return this.instanceTypeLine.getText();
+    }
+    public String getTextFromRegion() {
+        return this.regionLine.getText();
+    }
+    public String getTextFromLocalSSD() {
+        return this.localSSDLine.getText();
+    }
+    public String getTextFromCommitmentTerm() {
+        return this.commitmentTermLine.getText();
+    }
+    public String getTexFromTotalEstimated() {
+        return this.totalEstimatedLine.getText();
     }
 }
