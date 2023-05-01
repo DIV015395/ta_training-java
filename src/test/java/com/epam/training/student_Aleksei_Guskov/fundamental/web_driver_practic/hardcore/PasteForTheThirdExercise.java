@@ -47,7 +47,7 @@ public class PasteForTheThirdExercise {
                 .selectCommittedUsageOptionAndAddToEstimate();
     }
     @Test
-    public void test() throws InterruptedException {
+    public void testEqualsSelectedParametersWithConstantParameters() throws InterruptedException {
         createNewPlatform();
         PageWhitEstimate pageWhitEstimate= new PageWhitEstimate(this.driver).examEstimateOnly();
         softAssert.assertEquals(pageWhitEstimate.getTextFromProvisioningModel(),
