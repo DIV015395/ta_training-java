@@ -62,7 +62,8 @@ public class PageWhitEmailGenerator {
         driver.switchTo().frame(firstFrameOnPage);
         driver.switchTo().frame(frameWhitImportantElements);
         return this;
-    }public String getTexFromTotalEstimated() {
+    }
+    public String getTexFromTotalEstimated() {
         Pattern pattern = Pattern.compile("[\\d,]*[\\d]{3}[\\.]{1}[\\d]{2}");
         String start = this.totalEstimatedLine.getText();
         String finish = "";
