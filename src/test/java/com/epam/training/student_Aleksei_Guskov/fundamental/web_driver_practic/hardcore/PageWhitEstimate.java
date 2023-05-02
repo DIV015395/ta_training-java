@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PageWhitEstimate {
     private WebDriver driver;
@@ -49,6 +51,13 @@ public class PageWhitEstimate {
         return this.commitmentTermLine.getText();
     }
     public String getTexFromTotalEstimated() {
-        return this.totalEstimatedLine.getText();
+        Pattern pattern = Pattern.compile("[\\d,]*[\\d]{3}[\\.]{1}[\\d]{2}");
+        String start = this.totalEstimatedLine.getText();
+        String finish = "";
+        Matcher matcher = pattern.matcher(start);
+        while (matcher.find()) {
+            finish = matcher.group();
+        }
+        return finish;
     }
 }

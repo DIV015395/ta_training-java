@@ -64,7 +64,7 @@ public class PageGooglePlatformCalculator {
         PageFactory.initElements(driver, this);
     }
     public PageGooglePlatformCalculator searchComputeEngineOption() {
-        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(3));
         webDriverWait.until(webDriver -> firstFrameOnPage.isEnabled());
         driver.switchTo().frame(firstFrameOnPage);
         driver.switchTo().frame(frameWhitImportantElements);
@@ -82,14 +82,15 @@ public class PageGooglePlatformCalculator {
     }
     public PageGooglePlatformCalculator selectRegularProvisioningModel() {
         this.selectorProvisioningModel.click();
-        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(3));
         webDriverWait.until(webDriver -> regularProvisioningModel.isDisplayed());
         this.regularProvisioningModel.click();
         return this;
     }
-    public PageGooglePlatformCalculator selectNOneSeries() {
+    public PageGooglePlatformCalculator selectNOneSeries() throws InterruptedException {
         this.selectorOfSeries.click();
-        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+        Thread.sleep(10);
+        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(3));
         webDriverWait.until(webDriver -> nOneSeries.isDisplayed());
         this.nOneSeries.click();
         return this;
@@ -97,14 +98,14 @@ public class PageGooglePlatformCalculator {
     public PageGooglePlatformCalculator selectMachineType() throws InterruptedException {
         this.machineTypeSelector.click();
         Thread.sleep(10);
-        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(3));
         webDriverWait.until(webDriver -> nOneStandardOptionMachine.isDisplayed());
         this.nOneStandardOptionMachine.click();
         return this;
     }
     public PageGooglePlatformCalculator addGPUsOperations() {
         this.addGPUsCheckBox.click();
-        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(3));
         webDriverWait.until(webDriver -> selectorTypeOfGPU.isDisplayed());
         this.selectorTypeOfGPU.click();
         webDriverWait.until(webDriver -> teslaTForeOption.isDisplayed());
@@ -117,21 +118,21 @@ public class PageGooglePlatformCalculator {
     }
     public PageGooglePlatformCalculator selectLocalSSD() {
         this.selectorOfSSDOptions.click();
-        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(3));
         webDriverWait.until(webDriver -> selectSecondSSDOption.isDisplayed());
         this.selectSecondSSDOption.click();
         return this;
     }
     public PageGooglePlatformCalculator selectRegionOption() {
         this.datacenterLocationOptions.click();
-        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(3));
         webDriverWait.until(webDriver -> selectEuropeWestThirdOption.isDisplayed());
         this.selectEuropeWestThirdOption.click();
         return this;
     }
     public PageGooglePlatformCalculator selectCommittedUsageOptionAndAddToEstimate() {
         this.committedUsageSelector.click();
-        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+        WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(3));
         webDriverWait.until(webDriver -> oneYearOptionForCommittedUsage.isDisplayed());
         this.oneYearOptionForCommittedUsage.click();
         this.addToEstimateButton.click();

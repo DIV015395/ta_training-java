@@ -22,6 +22,7 @@ public class PageGoogleCloudPlatform {
     }
     public PageGoogleCloudPlatform openPage() {
         this.driver.get(URL_GOOGLE_CLOUD);
+        driver.manage().window().maximize();
         WebDriverWait webDriverWait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
         webDriverWait.until(webDriver -> searchButtonAndAreaOnStartPage.isEnabled());
         return this;
